@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2{
+    color: #D14D72;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    background: #D14D72;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%; 
+    padding: 0 20px;  
+}
+
+nav .logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 8px;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #D14D72;
+    background: #fff4f5;
+    border-radius: 10px;
+}
+
+/* About Section */
+.about-section {
+    background-color: #fff0f0; /* Light background color */
+    padding: 50px 20px;
+}
+
+.about-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px; /* Space between the bio-data and the image */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.bio-data {
+    flex: 1;
+    max-width: 45%; /* Limit the width of the bio data */
+    text-align: left;
+    padding-right: 20px;
+}
+
+.bio-data h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #D14D72;
+}
+
+.bio-data p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.bio-data strong {
+    font-weight: bold;
+    color: #D14D72;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 45%; /* Limit the width of the image */
+    text-align: center;
+}
+
+.about-image img {
+    width: 60%;
+    height: auto;
+    border-radius: 10px; /* Round the corners of the image */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for the image */
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Responsive Design: Stack bio-data and image on smaller screens */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .bio-data, .about-image {
+        max-width: 100%; /* Make bio-data and image full-width on small screens */
+        margin-bottom: 30px; /* Space between bio-data and image */
+    }
+}
+
+
+/* Gallery Section */
+.gallery-section {
+    background: #ffe4e4;
+    padding: 50px 20px;
+}
+
+.gallery-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 40px;
+    justify-items: center;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* Lift the image up on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Add shadow for hover effect */
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.gallery-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.gallery-description {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 20px; /* Space before the button */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-description {
+    opacity: 1; /* Show description when hovering */
+}
+
+/* Button Styling */
+.gallery-btn {
+    background-color: #FFABAB; /* Blue background for button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateY(20px); /* Start below the item */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for opacity and movement */
+}
+
+.gallery-item:hover .gallery-btn {
+    opacity: 1; /* Button becomes visible */
+    transform: translateY(0); /* Button moves up to its normal position */
+}
+
+.gallery-btn:hover {
+    color: #FFABAB;
+    background-color: #FEF2F4; /* Darken the button on hover */
+}
+
+/* Contact Section */
+.contact-section {
+    background: #ffd0d0;
+    padding: 50px 20px;
+}
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.contact-section a {
+    color: #333;
+    text-decoration: none;
+}
+
+.social-media {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.social-icon {
+    font-size: 30px; /* Icon size */
+    margin: 0 15px; /* Space between icons */
+    color: #ffd0d0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #D14D72; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
